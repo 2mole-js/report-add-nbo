@@ -1,0 +1,6 @@
+#include <stdio.h>
+void main(){
+	File* pFile = fopen("thousand.bin", "W");
+	fprintf(pFile, "thousand");
+	fclose(pflie);
+}
