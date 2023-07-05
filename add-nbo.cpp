@@ -12,6 +12,7 @@ void add(uint32_t num1,uint32_t num2){
 
 }
 
+
 //main 함수 호출시, 인자를 받아오며 해당 인자 개수 확인 및 해당 인자를 통한 파일명 받아오기
 int main (int argc, char *argv[]){
     // 인자 2개를 받지 않을 경우 에러 표출
@@ -24,15 +25,29 @@ int main (int argc, char *argv[]){
     // file_x 에 호출된 인자를 열어 저장한다.
     FILE *file_1 = fopen(argv[1], "rb");
     FILE *file_2 = fopen(argv[2], "rb");
+    
+
     // 해당 파일은 32bit로 저장되어 있기 때문에 변수를 uint32_t 로 지정한다. 
     uint32_t file_num1;
     uint32_t file_num2;
     //file_num1, file_num2에 저장하며 fread(%변수 의 주소위치 (&사용), 사이즈 크기, 몇개받아올지, 읽어올 파일명)
     fread(&file_num1, 1, 32, file_1);
     fread(&file_num2, 1, 32, file_2);
-    
+
+    // 받아온 file_num1의 값이 없을경우 종료
+    if (file_num1 == NULL || file_num2 == NULL){
+        printf("ERROR");
+        printf("file is not existence");
+        return 1;
+    }
+
+        
     // 두 파일을 더하는 함수 호출
     add(file_num1,file_num2);
+
+    //file close
+    fclose(file_1);
+    flcose(file_2);
 
 }
 
