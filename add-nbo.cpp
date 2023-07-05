@@ -34,7 +34,7 @@ int main (int argc, char *argv[]){
     fread(&file_num1, 1, 32, file_1);
     fread(&file_num2, 1, 32, file_2);
 
-    // 받아온 file_num1의 값이 없을경우 종료
+    // 받아온 file_num1, file_num2의 값이 없을경우 종료
     if (file_num1 == NULL || file_num2 == NULL){
         printf("ERROR");
         printf("file is not existence");
