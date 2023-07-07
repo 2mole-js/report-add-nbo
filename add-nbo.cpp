@@ -30,7 +30,7 @@ int main (int argc, char *argv[]){
     // 해당 파일은 32bit로 저장되어 있기 때문에 변수를 uint32_t 로 지정한다. 
     uint32_t file_num1;
     uint32_t file_num2;
-    //file_num1, file_num2에 저장하며 fread(%변수 의 주소위치 (&사용), 사이즈 크기, 몇개받아올지, 읽어올 파일명)
+    //file_num1, file_num2에 저장하며 fread(%변수 의 주소위치(버퍼) (&사용), 배열 사이즈 크기, 한개의 배열에 몇개받아올지, 읽어올 파일명)
     fread(&file_num1, 1, 32, file_1);
     fread(&file_num2, 1, 32, file_2);
 
